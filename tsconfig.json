@@ -6,3 +6,12 @@
     "esModuleInterop": true //dùng được từ khóa export thay cho require
   }
 }
+// {
+//   "compilerOptions": {
+//     "target": "ES6",
+//     "module": "ESNext",
+//     "esModuleInterop": true,
+//     "moduleResolution": "Node",
+//     "resolveJsonModule": true
+//   }
+// }
