@@ -137,3 +137,25 @@ export const edit = async (req: Request, res: Response) => {
     });
   }
 };
+//[patch] api/v1/task/delete/id
+export const deteteTask = async (req: Request, res: Response) => {
+  try {
+    const id: string = req.params.id;
+    await Task.updateOne(
+      { _id: id },
+      {
+        deleted: true,
+        deletedAt: Date.now(),
+      }
+    );
+    res.json({
+      code: 200,
+      message: "Xóa thành công",
+    });
+  } catch (error) {
+    res.json({
+      code: 400,
+      message: "Fail",
+    });
+  }
+};
