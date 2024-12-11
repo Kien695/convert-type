@@ -6,6 +6,8 @@ dotenv.config();
 database.connect();
 const app: Express = express();
 const port: string | number = process.env.PORT || 3000;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 mainV1Router(app);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
