@@ -105,3 +105,19 @@ export const changeMulti = async (req: Request, res: Response) => {
     });
   }
 };
+//[post] api/v1/task/create
+export const create = async (req: Request, res: Response) => {
+  try {
+    const product = new Task(req.body);
+    const data = await product.save();
+    res.json({
+      code: 200,
+      message: "Tạo thành công",
+    });
+  } catch (error) {
+    res.json({
+      code: 400,
+      message: "Tạo thất bật",
+    });
+  }
+};
