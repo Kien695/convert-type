@@ -55,17 +55,11 @@ export const login = async (req: Request, res: Response) => {
     token: token,
   });
 };
-//[get] api/v1/user/detail/id
+//[get] api/v1/user/detail
 export const detail = async (req: Request, res: Response) => {
-  const id: string = req.params.id;
-  const user = await User.find({
-    _id: id,
-    deleted: false,
-  }).select("-password -token");
-
   res.json({
     code: 200,
     message: "Thành công",
-    info: user,
+    info: req["user"],
   });
 };
